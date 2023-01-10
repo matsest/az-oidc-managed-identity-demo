@@ -1,6 +1,6 @@
 # GitHub Actions with federated credentials to user-assigned managed identity
 
-Demo project to test the viability of using user-assigned managed identites instead of service principals for authentication for GitHub Actions.
+Demo project to test the viability of using user-assigned managed identites instead of service principals for authentication for GitHub Actions. See the [learn more section](#learn-more) for more details about the background.
 
 ## Motivation
 
@@ -72,3 +72,4 @@ In summary, use Azure RBAC to give proper access to your user-assigned managed i
 - [Workload Identity Federation](https://learn.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation)
 - [Configure a user-assigned managed identity to trust an external identity provider ](https://learn.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation-create-trust-user-assigned-managed-identity?pivots=identity-wif-mi-methods-azp)
 - [Manage user-assigned managed identities](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell)
+- [Azure/login Actions doc for OIDC](https://github.com/Azure/login#github-action-for-azure-login)

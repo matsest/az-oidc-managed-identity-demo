@@ -30,6 +30,14 @@ This will deploy the [main.bicep](./bicep/main.bicep) that contains a resource g
 
 4. Trigger workflow by navigating to Actions and choosing the "Run Azure Login" workflow
 
+## Cleanup
+
+Delete the resource group including the managed identity and its credentials by running:
+
+```powershell
+Remove-AzResourceGroup -Name "demo-mi-gh-rg"
+```
+
 ## Learn more
 
 - [Workload Identity Federation](https://learn.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation)

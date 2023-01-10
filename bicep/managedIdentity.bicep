@@ -31,7 +31,7 @@ resource federatedCredential 'Microsoft.ManagedIdentity/userAssignedIdentities/f
     audiences: [
       'api://AzureADTokenExchange'
     ]
-    issuer: 'https://token.actions.githubusercontent.com/'
+    issuer: 'https://token.actions.githubusercontent.com'
     subject: 'repo:${ghUserName}/${ghRepoName}:environment:Azure'
   }
 }

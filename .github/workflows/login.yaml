@@ -1,0 +1,25 @@
+name: Run Azure Login
+on: [workflow_dispatch]
+
+permissions:
+  id-token: write
+  contents: read
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    environment: Azure
+    steps:
+      - name: "Azure PowerShell login"
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          enable-AzPSSession: true
+
+      - name: "Get resource groups"
+        uses: azure/powershell@v1
+        with:
+          inlineScript: |
+            Get-AzResourceGroup
+          azPSVersion: "latest"

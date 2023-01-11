@@ -24,9 +24,15 @@ jobs:
         run: |
             Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
             Install-Module -Name Az.Resources
+            Get-Module -ListAvailable -Name "Az.*" | Select Name, Version
         shell: pwsh
  
-      - name: "Get resource groups"
+      - name: "Test length of token"
         run: |
             Get-AzResourceGroup
+            Write-Host "Sleeping for 11 minutes..."
+            Start-Sleep -Seconds 660
+            Write-Host "Sleep stop!"
+            Get-AzResourceGroup
         shell: pwsh
+

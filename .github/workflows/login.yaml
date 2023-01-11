@@ -30,8 +30,8 @@ jobs:
       - name: "Test length of token"
         run: |
             Get-AzResourceGroup
-            Write-Host "Sleeping for 11 minutes..."
-            Start-Sleep -Seconds 660
+            Write-Host "Sleeping for an hour..."
+            Start-Sleep -Seconds 3601
             Write-Host "Sleep stop!"
             Get-AzResourceGroup
         shell: pwsh

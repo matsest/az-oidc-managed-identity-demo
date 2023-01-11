@@ -22,7 +22,8 @@ jobs:
 
       - name: "Install Az modules"
         run: |
-           Install-Module -Name Az.Resources
+            Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
+            Install-Module -Name Az.Resources
         shell: pwsh
  
       - name: "Get resource groups"

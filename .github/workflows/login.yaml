@@ -1,5 +1,8 @@
-name: Run Azure Login
-on: [workflow_dispatch]
+name: Run Azure Login Dev
+on:
+  workflow_dispatch:
+  push:
+    branches: [dev]
 
 permissions:
   id-token: write
@@ -17,9 +20,12 @@ jobs:
           subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
           enable-AzPSSession: true
 
+      - name: "Install Az modules"
+        run: |
+           Install-Module -Name Az.Resources
+        shell: pwsh
+ 
       - name: "Get resource groups"
-        uses: azure/powershell@v1
-        with:
-          inlineScript: |
+        run: |
             Get-AzResourceGroup
-          azPSVersion: "latest"
+        shell: pwsh

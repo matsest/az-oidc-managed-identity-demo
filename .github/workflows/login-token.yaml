@@ -1,0 +1,40 @@
+name: Test tokens - MI
+on:
+  workflow_dispatch:
+  push:
+    branches: [dev]
+
+permissions:
+  id-token: write
+  contents: read
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    environment: Azure
+    strategy:
+      matrix:
+        number: [1, 2, 3]
+    steps:
+      - name: "Azure PowerShell login"
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.CLIENT_ID }}
+          tenant-id: ${{ secrets.TENANT_ID }}
+          subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
+          enable-AzPSSession: true
+
+      - name: "Install Az modules"
+        run: |
+          Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
+          Install-Module -Name Az.Accounts
+          Get-Module -ListAvailable -Name "Az.*" | Select Name, Version
+        shell: pwsh
+
+      - name: "Test length of token"
+        run: |
+          Write-Host "Attempt ${{ matrix.number }}"
+          $now = Get-Date -AsUTC
+          Write-Host "Now: $now"
+          $token = Get-AzAccessToken
+          Write-Host "Expires: $($token.ExpiresOn.DateTime)"
+        shell: pwsh

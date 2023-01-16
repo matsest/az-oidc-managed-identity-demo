@@ -23,6 +23,13 @@ jobs:
           subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
           enable-AzPSSession: true
 
+      - name: "Install Az modules"
+        run: |
+          Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
+          Install-Module -Name Az.Accounts
+          Get-Module -ListAvailable -Name "Az.*" | Select Name, Version
+        shell: pwsh
+
       - name: "Test length of token"
         run: |
           Write-Host "Attempt ${{ matrix.number }}"

@@ -13,7 +13,7 @@ jobs:
     environment: Azure-SP
     strategy:
       matrix:
-        sleep: [1201, 3601] # 20m, 1 hour 
+        sleep: [1201, 2401, 3121, 3601] # 20m, 40m, 52m, 1 hour
     steps:
       - name: "Azure PowerShell login"
         uses: azure/login@v1

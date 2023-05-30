@@ -1,7 +1,7 @@
 targetScope = 'subscription'
 
 param baseName string = 'demo-mi-gh'
-param location string = 'norwayeast'
+param location string = 'eastus'
 
 param ghUserName string
 param ghRepoName string = 'az-oidc-managed-identity-demo'

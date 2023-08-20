@@ -32,11 +32,15 @@ Connect-AzAccount
 
 $ghUserName = '<your github user name>'
 
+# Alternative 1: Deploy with Bicep template
 New-AzSubscriptionDeployment -Name "demo-mi-gh" -Location norwayeast `
     -TemplateFile ./bicep/main.bicep -ghUserName $ghUserName
+
+# Alternative 2: Deploy with PowerShell script
+./powershell/Create-AzManagedIdentityForGitHub.ps1 -GhUserName $ghUserName
 ```
 
-This will deploy the [main.bicep](./bicep/main.bicep) that contains a resource group with a managed identity with a federated credential and a role assignment. Make note of the output values for subscription id, client id and tenant id.
+This will deploy the [main.bicep](./bicep/main.bicep) or [PowerShell script](./powershell/Create-AzManagedIdentityForGitHub.ps1) that contains a resource group with a managed identity with a federated credential and a role assignment. Make note of the output values for subscription id, client id and tenant id.
 
 4. Add these values as secrets to your GitHub repository with the secret names `SUBSCRIPTION_ID`, `CLIENT_ID`, `TENANT_ID`.
 

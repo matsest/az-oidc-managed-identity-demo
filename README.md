@@ -81,7 +81,9 @@ In summary, use Azure RBAC to give proper access to your user-assigned managed i
 
 ## Learn more
 
-- [Workload Identity Federation](https://learn.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation)
-- [Configure a user-assigned managed identity to trust an external identity provider ](https://learn.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation-create-trust-user-assigned-managed-identity?pivots=identity-wif-mi-methods-azp)
+- [Workload Identity Federation](https://learn.microsoft.com/en-us/azure/active-directory/workload-identities/workload-identity-federation)
+- [Configure a user-assigned managed identity to trust an external identity provider ](https://learn.microsoft.com/en-us/azure/active-directory/workload-identities/workload-identity-federation-create-trust-user-assigned-managed-identity)
 - [Manage user-assigned managed identities](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell)
 - [Azure/login Actions doc for OIDC](https://github.com/Azure/login#github-action-for-azure-login)
+
+This repository (other branches than main) has also been used to debug an known error with client assertion timeouts for federated credentials for _service principals_. See more info in [Azure/login/issues/180](https://github.com/Azure/login/issues/180)

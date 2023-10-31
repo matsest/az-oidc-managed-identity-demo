@@ -2,6 +2,8 @@
 
 Demo project to showcase the ability to use user-assigned managed identites and federated credentials instead of service principals with secrets for authentication for GitHub Actions. See the [learn more section](#learn-more) for more details about the background.
 
+> This repo was featured in a blog post of mine from September 2023: [mxe.no | Securing GitHub Actions for Azure with OpenID Connect](https://www.mxe.no/posts/securing-gh-actions-oidc/)
+
 ## Motivation
 
 - Use managed identities instead of service principals in GitHub Actions? ❓

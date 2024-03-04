@@ -10,7 +10,7 @@ jobs:
     environment: Azure
     steps:
       - name: "Azure PowerShell login"
-        uses: azure/login@v1
+        uses: azure/login@v2
         with:
           client-id: ${{ secrets.CLIENT_ID }}
           tenant-id: ${{ secrets.TENANT_ID }}

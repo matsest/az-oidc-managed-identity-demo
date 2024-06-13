@@ -15,6 +15,7 @@ jobs:
           client-id: ${{ secrets.CLIENT_ID }}
           tenant-id: ${{ secrets.TENANT_ID }}
           subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
+          auth-type: IDENTITY
           enable-AzPSSession: true
 
       - name: "Get resource groups"

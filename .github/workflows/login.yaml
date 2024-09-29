@@ -19,7 +19,7 @@ jobs:
           tenant-id: ${{ secrets.TENANT_ID }}
           subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
           enable-AzPSSession: true
-          auth-type: IDENTITY
+          auth-type: SERVICE_PRINCIPAL # NOTE: It's a UAMI used above!
 
       - name: "Get resource groups"
         uses: azure/powershell@v2

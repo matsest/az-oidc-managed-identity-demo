@@ -1,5 +1,8 @@
 name: Run Azure Login
-on: [workflow_dispatch]
+on:
+  push:
+    branches:
+      - test
 
 permissions:
   id-token: write
@@ -16,6 +19,7 @@ jobs:
           tenant-id: ${{ secrets.TENANT_ID }}
           subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
           enable-AzPSSession: true
+          auth-type: IDENTITY
 
       - name: "Get resource groups"
         uses: azure/powershell@v2

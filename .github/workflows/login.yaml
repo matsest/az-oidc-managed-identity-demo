@@ -18,7 +18,7 @@ jobs:
           enable-AzPSSession: true
 
       - name: "Get resource groups"
-        uses: azure/powershell@v2
+        uses: azure/powershell@v3
         with:
           inlineScript: |
             Get-AzResourceGroup
